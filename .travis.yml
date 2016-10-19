@@ -5,8 +5,5 @@ php:
   - 5.5
   - 7.0
 
-before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev
-
-script: php oil test
+install: composer install
+script: composer phpcs
