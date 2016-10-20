@@ -19,7 +19,8 @@
         "michelf/php-markdown": "1.4.0"
     },
     "require-dev": {
-        "fuel/docs": "1.8.*"
+        "fuel/docs": "1.8.*",
+        "squizlabs/php_codesniffer": "^2.6"
     },
     "suggest": {
         "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
@@ -39,6 +40,7 @@
         }
     },
     "scripts": {
+        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml",
         "post-install-cmd": [
             "php oil r install"
         ]
