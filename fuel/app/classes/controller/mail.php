@@ -82,7 +82,7 @@ class Controller_Mail extends \Controller
     private function _getTemplates()
     {
         $aFiles = \File::read_dir(APPPATH . '/views/emails', 1);
-        $aFilesArray = [];
+        $aFilesArray = array();
         foreach ($aFiles as $sFile) {
             $sFile = str_replace('.php', '', $sFile);
             $aFilesArray[$sFile] = \Inflector::humanize(\Inflector::underscore(str_replace('-', '_', $sFile)));
