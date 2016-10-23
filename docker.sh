@@ -8,10 +8,10 @@ function title()
 
 parent_path=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
 
-title "build php image"
+title "Build Query Mail PHP image"
 docker build -t querymail-img-php $parent_path/docker
 
-title "run docker php container"
+title "PHP Container"
 docker rm -f querymail-php 2> /dev/null
 docker run --name querymail-php \
         -v $parent_path:/srv/http \
@@ -20,10 +20,13 @@ docker run --name querymail-php \
         --restart=always \
         -d querymail-img-php
 
-title "installing libraries"
+title "Installing libraries"
 docker exec querymail-php bash -c "wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet && mv composer.phar /usr/bin/composer && cd /srv/http && composer install --no-dev -o"
 
-title "nginx container"
+title "Installing database"
+docker exec querymail-php bash -c "sqlite3 /srv/http/sqlite/querymail < /srv/http/sqlite/querymail.sql"
+
+title "Nginx container"
 docker rm -f querymail-nginx 2> /dev/null
 docker run --name querymail-nginx \
         -v $parent_path:/usr/share/nginx:ro \
