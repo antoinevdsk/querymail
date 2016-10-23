@@ -20,6 +20,9 @@ docker run --name querymail-php \
         --restart=always \
         -d querymail-img-php
 
+title "installing libraries"
+docker exec querymail-php bash -c "wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet && mv composer.phar /usr/bin/composer && cd /srv/http && composer install --no-dev -o"
+
 title "nginx container"
 docker rm -f querymail-nginx 2> /dev/null
 docker run --name querymail-nginx \

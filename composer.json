@@ -34,10 +34,7 @@
         }
     },
     "scripts": {
-        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml",
-        "post-install-cmd": [
-            "php oil r install"
-        ]
+        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml"
     },
     "minimum-stability": "stable"
 }

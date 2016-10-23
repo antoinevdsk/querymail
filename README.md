@@ -3,15 +3,15 @@ Query Mail
 
 ## Description
 
-Query Mail is an simple and powerful tools that generate fancy emails for reporting, statistics or monitoring your data.
+Query Mail is a simple and powerful tool that generate fancy emails for reporting, statistics or monitoring your data.
 
 You can define your own SQL queries to generate KPI you need and then encapsulate them into a single email.
 
 An example of email with 2 KPIs and a sample layout is provided into the project
 
-Query mail is written in PHP based on a popular framework called [FuelPHP](http://fuelphp.com/)
+Query Mail is written in PHP based on a popular framework called [FuelPHP](http://fuelphp.com/)
 
-The project use a SQLite preconfigured database so there is no dependencies.
+The project use a SQLite preconfigured database so there is minimal dependencies.
 
 ## Installation with docker
 
@@ -20,12 +20,12 @@ In order to run this project properly, the easiest way is to use the provided do
 Edit the `docker/ssmtp.conf` file and set your mail server credentials.
 Then simply run the `docker.sh` file at the root path of the project. This assume that you have docker installed on your machine.
 This script will create a docker container for PHP and run a nginx webserver.
-Add the following line in your `\etc\hosts` file : 
+Add the following line in your `/etc/hosts` file : 
 ```
 127.0.0.1 querymail
 ```
 
-Then you can directly access Query  Mail via http://querymail
+Then you can directly access Query Mail via http://querymail
 
 ## Other installation
 
@@ -63,7 +63,7 @@ Each connection must have its own alias and will automaticly appear in the web i
 
 ### Email template layout
 
-A sample html layout is provided into the project. You can create your own layout and put them into `fuel\app\views\emails\` 
+A sample html layout is provided into the project. You can create your own layout and put them into `fuel/app/views/emails/` 
 Keep in mind that the template must be written with the old HTML4 style because of popular webmail restriction like Gmail, Yahoo, etc.
  
 ### Project
