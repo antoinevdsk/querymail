@@ -5,7 +5,7 @@
     "keywords": ["application", "website", "KPI", "mail", "database", "analytics"],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.3",
+        "php": "^5.4 || ^7.0",
         "ext-pdo_mysql": "^1.0",
         "ext-pdo_sqlite": "^1.0",
         "ext-gd": "^0.0.0",
@@ -18,7 +18,8 @@
         "fuelphp/upload": "~2.0.6",
         "monolog/monolog": "^1.5",
         "phpseclib/phpseclib": "^2.0.0",
-        "michelf/php-markdown": "^1.4.0"
+        "michelf/php-markdown": "^1.4.0",
+        "amenadiel/jpgraph": "^3.6"
     },
     "require-dev": {
         "fuel/docs": "1.8.*",

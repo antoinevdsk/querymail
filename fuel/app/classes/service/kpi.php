@@ -2,6 +2,13 @@
 
 namespace Service;
 
+use Amenadiel\JpGraph\Graph\Graph;
+use Amenadiel\JpGraph\Graph\PieGraph;
+use Amenadiel\JpGraph\Plot\BarPlot;
+use Amenadiel\JpGraph\Plot\GroupBarPlot;
+use Amenadiel\JpGraph\Plot\LinePlot;
+use Amenadiel\JpGraph\Plot\PiePlotC;
+
 class Kpi
 {
 
@@ -114,15 +121,8 @@ class Kpi
 
     private static function graphPie(\Model\QmailKpi $oKpi, $aQueryData)
     {
-        require_once(APPPATH . 'vendor/jpgraph/src/jpgraph.php');
-        require_once(APPPATH . 'vendor/jpgraph/src/jpgraph_pie.php');
-        require_once(APPPATH . 'vendor/jpgraph/src/jpgraph_pie3d.php');
-
-        // Some data
-        $data = array(40, 60, 21, 33, 12);
-
         // Create the Pie Graph.
-        $graph = new \PieGraph(700, 300, 'auto');
+        $graph = new PieGraph(700, 300, 'auto');
         $graph->SetScale("textlin");
         //$graph->SetMargin(10,10,10,100);
 
@@ -146,7 +146,7 @@ class Kpi
         }
 
         // Create
-        $p1 = new \PiePlotC($aAllValues[1]); // les data doivent être dans la 2ème colonne
+        $p1 = new PiePlotC($aAllValues[1]); // les data doivent être dans la 2ème colonne
         $p1->SetSize(0.35);
         $graph->Add($p1);
 
@@ -171,11 +171,8 @@ class Kpi
 
     private static function graphBarPlot(\Model\QmailKpi $oKpi, $aQueryData)
     {
-        require_once(APPPATH . '/vendor/jpgraph/src/jpgraph.php');
-        require_once(APPPATH . '/vendor/jpgraph/src/jpgraph_bar.php');
-
         // Create the graph. These two calls are always required
-        $graph = new \Graph(700, 300, 'auto');
+        $graph = new Graph(700, 300, 'auto');
         $graph->SetScale("textlin");
         //$graph->SetFrame(true);
         $graph->SetMargin(50, 10, 10, 10);
@@ -214,7 +211,7 @@ class Kpi
 
         $aPlots = array();
         foreach ($aAllValues as $sField => $aValues) {
-            $oPlot = new \BarPlot($aValues);
+            $oPlot = new BarPlot($aValues);
             $oPlot->SetColor("white");
             $oPlot->SetFillColor("#cc1111");
             $oPlot->SetLegend($sField);
@@ -222,7 +219,7 @@ class Kpi
             $aPlots[] = $oPlot;
         }
 
-        $gbplot = new \GroupBarPlot($aPlots);
+        $gbplot = new GroupBarPlot($aPlots);
         $graph->Add($gbplot);
 
         $graph->title->Set($oKpi->NAME);
@@ -238,11 +235,8 @@ class Kpi
 
     private static function graphLine(\Model\QmailKpi $oKpi, $aQueryData)
     {
-        require_once(APPPATH . '/vendor/jpgraph/src/jpgraph.php');
-        require_once(APPPATH . '/vendor/jpgraph/src/jpgraph_line.php');
-
         // Create the graph. These two calls are always required
-        $graph = new \Graph(700, 300, 'auto');
+        $graph = new Graph(700, 300, 'auto');
         $graph->SetScale("textlin");
         //$graph->SetFrame(true);
         $graph->SetMargin(50, 10, 10, 10);
@@ -275,7 +269,7 @@ class Kpi
 
 
         foreach ($aAllValues as $sField => $aValues) {
-            $oPlot = new \LinePlot($aValues);
+            $oPlot = new LinePlot($aValues);
             $oPlot->SetLegend($sField);
             $graph->Add($oPlot);
 
