@@ -14,7 +14,7 @@ RUN apt-get update \
 
 # php extension
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install -j$(nproc) mbstring pdo pdo_mysql zip mysqli iconv mcrypt gd
+RUN docker-php-ext-install -j$(nproc) pdo pdo_mysql iconv gd
 
 RUN usermod -u 1000 www-data
 
