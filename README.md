@@ -30,7 +30,7 @@ Then you can directly access Query Mail via http://querymail
 ## Other installation
 
 If you prefer you can setup your own server infrastructure.
-You just need to know that this code will work only for PHP5.3+
+You just need to know that this code will work only for PHP5.4+
 
 ## Scheduling
 
