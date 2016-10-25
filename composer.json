@@ -6,15 +6,12 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3.3",
-        "ext-pdo_mysql": "^1.0",
-        "ext-pdo_sqlite": "^1.0",
-        "ext-gd": "^0.0.0",
+        "ext-pdo_mysql": ">=1.0",
+        "ext-pdo_sqlite": ">=1.0",
+        "ext-gd": ">=1.0",
         "composer/installers": "~1.0",
         "fuel/core": "~1.8.0",
-        "fuel/auth": "~1.8.0",
         "fuel/email": "~1.8.0",
-        "fuel/orm": "~1.8.0",
-        "fuel/parser": "~1.8.0",
         "fuelphp/upload": "~2.0.6",
         "monolog/monolog": "^1.5",
         "phpseclib/phpseclib": "^2.0.0",
@@ -34,10 +31,7 @@
         }
     },
     "scripts": {
-        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml",
-        "post-install-cmd": [
-            "php oil r install"
-        ]
+        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml"
     },
     "minimum-stability": "stable"
 }
