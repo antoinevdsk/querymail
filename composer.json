@@ -6,9 +6,9 @@
     "license": "MIT",
     "require": {
         "php": "^5.4 || ^7.0",
-        "ext-pdo_mysql": ">=1.0",
-        "ext-pdo_sqlite": ">=1.0",
-        "ext-gd": ">=1.0",
+        "ext-pdo_mysql": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-gd": "*",
         "composer/installers": "~1.0",
         "fuel/core": "~1.8.0",
         "fuel/email": "~1.8.0",
@@ -32,7 +32,11 @@
         }
     },
     "scripts": {
-        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml"
+        "phpcs": "phpcs fuel/app/classes --standard=PSR2 --report-checkstyle=build/logs/checkstyle.xml",
+        "installdb": [
+            "if [ ! -f sqlite/querymail ]; then php -r \"\\$db = new PDO('sqlite:'.__DIR__.'/sqlite/querymail'); foreach (explode(';', file_get_contents(__DIR__.'/sqlite/querymail.sql')) as \\$line) { if (!empty(\\$line)) \\$db->exec(\\$line); }\"; fi"
+        ],
+        "post-install-cmd": "@installdb"
     },
     "minimum-stability": "stable"
 }

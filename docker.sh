@@ -23,12 +23,6 @@ docker run --name querymail-php \
 title "Installing libraries"
 docker exec querymail-php bash -c "wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet && mv composer.phar /usr/bin/composer && cd /srv/http && composer install --no-dev -o"
 
-
-if [ ! -f $parent_path/sqlite/querymail ]; then
-    title "Installing database"
-    docker exec querymail-php bash -c "sqlite3 /srv/http/sqlite/querymail < /srv/http/sqlite/querymail.sql"
-fi
-
 title "Nginx container"
 docker rm -f querymail-nginx 2> /dev/null
 docker run --name querymail-nginx \
