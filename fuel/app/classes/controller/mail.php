@@ -47,7 +47,7 @@ class Controller_Mail extends \Controller
             $oMailKpi = $this->getMail($iMailId);
             // Override subject if given in url
             $oMail = \Email::forge();
-            $oMail->to($oMailKpi->TO);
+            $oMail->to(explode(',',$oMailKpi->TO));
             $oMail->from($oMailKpi->FROM);
             $oMail->html_body($sMail);
 
