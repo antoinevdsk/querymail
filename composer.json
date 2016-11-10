@@ -1,7 +1,7 @@
 {
-    "name": "antoinevdsk/querymail",
+    "name": "querymail/querymail",
     "type": "project",
-    "description" : "Query Mail is an simple and powerful tools that generate fancy emails for reporting, statistics or monitoring your data.",
+    "description" : "Query Mail is a simple and powerful tools that generate fancy emails for reporting, statistics or monitoring your data.",
     "keywords": ["application", "website", "KPI", "mail", "database", "analytics"],
     "license": "MIT",
     "require": {
@@ -21,6 +21,11 @@
     "require-dev": {
         "fuel/docs": "1.8.*",
         "squizlabs/php_codesniffer": "^2.6"
+    },
+    "homepage": "https://github.com/antoinevdsk/querymail",
+    "support": {
+        "issues": "https://github.com/antoinevdsk/querymail/issues",
+        "source": "https://github.com/antoinevdsk/querymail"
     },
     "config": {
         "vendor-dir": "fuel/vendor"
