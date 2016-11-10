@@ -1,0 +1,20 @@
+version: '2'
+services:
+  php:
+    build: ./docker
+    volumes:
+      - .:/srv/http
+      - ./docker/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+    image: querymail-img-php
+    restart: always
+  web:
+    depends_on:
+      - php
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - .:/usr/share/nginx:ro
+      - ./docker/nginx.conf:/nginx.conf
+    command: nginx -c /nginx.conf
+    restart: always

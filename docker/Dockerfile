@@ -11,7 +11,6 @@ RUN apt-get update \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libpng12-dev \
-    wget \
     sqlite3
 
 # php extension
@@ -23,8 +22,11 @@ RUN usermod -u 1000 www-data
 # sendmail php.ini
 RUN echo "sendmail_path = /usr/sbin/ssmtp -t" >> /usr/local/etc/php/php.ini
 
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 EXPOSE 9000
 
-WORKDIR /srv/http/public
+WORKDIR /srv/http
 
 CMD ["php-fpm"]

@@ -18,7 +18,8 @@ The project use a SQLite preconfigured database so there is minimal dependencies
 In order to run this project properly, the easiest way is to use the provided docker installation.
 
 Edit the `docker/ssmtp.conf` file and set your mail server credentials.
-Then simply run the `docker.sh` file at the root path of the project. This assume that you have docker installed on your machine.
+First, you have to install dependencies with `docker-compose run --rm php composer install --no-dev -o` command.
+Then simply run `docker-compose up -d` at the root path of the project.
 This script will create a docker container for PHP and run a nginx webserver.
 Add the following line in your `/etc/hosts` file : 
 ```
