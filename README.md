@@ -28,7 +28,7 @@ Add the following line in your `/etc/hosts` file :
  
  Then you can directly access Query Mail via http://querymail
  
- ## Installation via composer
+## Installation via composer
  
  ```
  composer create-project querymail/querymail
