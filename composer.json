@@ -20,7 +20,8 @@
     },
     "require-dev": {
         "fuel/docs": "1.8.*",
-        "squizlabs/php_codesniffer": "^2.6"
+        "squizlabs/php_codesniffer": "^2.6",
+        "codeclimate/php-test-reporter": "dev-master"
     },
     "homepage": "https://github.com/antoinevdsk/querymail",
     "support": {
