@@ -48,7 +48,7 @@ class Controller_Mail extends \Controller
             // Override subject if given in url
             $oMail = \Email::forge();
             $oMail->to(explode(',',$oMailKpi->TO));
-            $oMail->from($oMailKpi->FROM);
+            $oMail->from($oMailKpi->FROM, $oMailKpi->FROM_NAME);
             $oMail->html_body($sMail);
 
             $oMail->subject(\Input::get('subject', $oMailKpi->SUBJECT));
@@ -152,6 +152,7 @@ class Controller_Mail extends \Controller
             $oMail = \Model\QmailMail::forge(array(
                 'MAIL_ID' => null,
                 'FROM' => '',
+                'FROM_NAME' => '',
                 'TO' => '',
                 'SUBJECT' => '',
                 'TEMPLATE' => '',
@@ -167,6 +168,7 @@ class Controller_Mail extends \Controller
         $oMail = $this->getMail($iMailId);
         $oMail->set(array(
             'FROM' => \Input::post('FROM'),
+            'FROM_NAME' => \Input::post('FROM_NAME'),
             'TO' => \Input::post('TO'),
             'SUBJECT' => \Input::post('SUBJECT'),
             'TEMPLATE' => \Input::post('TEMPLATE'),

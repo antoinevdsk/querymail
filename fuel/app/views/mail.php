@@ -25,9 +25,14 @@
         </div>
 
         <div class="form-group">
-            <label for="name" class="col-sm-1 control-label">From</label>
-            <div class="col-sm-10">
+            <label for="name" class="col-sm-1 control-label">From (email)</label>
+            <div class="col-sm-4">
                 <input name="FROM" class="form-control" placeHolder="From (email address)" value="<?= $oMail->FROM; ?>">
+            </div>
+
+            <label for="name" class="col-sm-1 control-label">From (name)</label>
+            <div class="col-sm-5">
+                <input name="FROM_NAME" class="form-control" placeHolder="From (name)" value="<?= $oMail->FROM_NAME; ?>">
             </div>
         </div>
         <div class="form-group">
