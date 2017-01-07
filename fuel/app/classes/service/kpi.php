@@ -210,11 +210,14 @@ class Kpi
 
 
         $aPlots = array();
+        $i = 0;
+		$aColors = \Config::get('querymail.colors');
         foreach ($aAllValues as $sField => $aValues) {
             $oPlot = new BarPlot($aValues);
             $oPlot->SetColor("white");
-            $oPlot->SetFillColor("#cc1111");
+            $oPlot->SetFillColor(isset($aColors[$i]) ? $aColors[$i] : '#CCCCCC');
             $oPlot->SetLegend($sField);
+            $i++;
 
             $aPlots[] = $oPlot;
         }

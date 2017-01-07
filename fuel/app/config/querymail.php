@@ -51,5 +51,15 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 return array(
-    'queryvar' => $aParams
+    'queryvar' => $aParams,
+	'colors' => [
+		'#3C87CE',
+		'#EBD938',
+		'#33B46C',
+		'#9A4A94',
+		'#C38132',
+		'#E82933',
+		'#42989A',
+		'#8FD68F'
+	]
 );
