@@ -6,4 +6,4 @@ php:
   - 7.0
 
 install: composer install
-script: composer phpcs
+after_script: composer phpcs

@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/querymail/querymail/v/stable)](https://packagist.org/packages/querymail/querymail) 
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg?style=flat-square)](https://php.net/)
+[![License](https://poser.pugx.org/querymail/querymail/license)](https://packagist.org/packages/querymail/querymail)
+
 Query Mail
 ==========
 
@@ -14,18 +19,25 @@ Query Mail is written in PHP based on a popular framework called [FuelPHP](http:
 The project use a SQLite preconfigured database so there is minimal dependencies.
 
 ## Installation with docker
-
-In order to run this project properly, the easiest way is to use the provided docker installation.
-
+ 
+ In order to run this project properly, the easiest way is to use the provided docker installation.
+ 
 Edit the `docker/ssmtp.conf` file and set your mail server credentials.
-Then simply run the `docker.sh` file at the root path of the project. This assume that you have docker installed on your machine.
+First, you have to install dependencies with `docker-compose run --rm php composer install --no-dev -o` command.
+Then simply run `docker-compose up -d` at the root path of the project.
 This script will create a docker container for PHP and run a nginx webserver.
 Add the following line in your `/etc/hosts` file : 
-```
-127.0.0.1 querymail
-```
-
-Then you can directly access Query Mail via http://querymail
+ ```
+ 127.0.0.1 querymail
+ ```
+ 
+ Then you can directly access Query Mail via http://querymail
+ 
+## Installation via composer
+ 
+ ```
+ composer create-project querymail/querymail
+ ```
 
 ## Other installation
 
